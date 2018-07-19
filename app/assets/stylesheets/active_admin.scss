@@ -1,3 +1,4 @@
+@import 'activeadmin_addons/all';
 // SASS variable overrides must be declared before loading up Active Admin's styles.
 //
 // To view the variables that Active Admin provides, take a look at
@@ -10,7 +11,14 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-
+@import "active_skin";
+// $skinLogo: url("admin_logo.png") no-repeat 0 0;
+// $skinLogo: none;
+// $skinActiveColor: #001cee;
+// $skinHeaderBck: #002744;
+// $panelHeaderBck: #002744;
+//
+// @import "active_skin"
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

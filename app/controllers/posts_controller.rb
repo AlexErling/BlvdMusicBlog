@@ -2,7 +2,11 @@ class PostsController < ApiController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.all
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all
+    end
     render :json => @posts
   end
 
@@ -29,7 +33,7 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :song_title, :post_type, :admin_user_id, :link)
+    params.require(:post).permit(:title, :body, :song_title, :post_type, :admin_user_id, :link, :tag_list)
   end
 
   def set_post

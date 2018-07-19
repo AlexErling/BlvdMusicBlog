@@ -4,7 +4,9 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Thisisthesong"
+  config.site_title = "ThisIsTheSong"
+
+  config.register_stylesheet '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin,latin-ext'
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
