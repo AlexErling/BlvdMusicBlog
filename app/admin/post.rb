@@ -18,14 +18,15 @@ ActiveAdmin.register Post do
 
   index do
     selectable_column
+    column :id
     column :title
     column :post_type
     column :created_at
     column "Post by:", :admin_user
     column  "Tags", :tag_list
-    column :image do |post|
-      image_tag url_for(post.image), class: 'thumbnail'
-    end
+    # column :image do |post|
+    #   image_tag url_for(post.image), class: 'thumbnail'
+    # end
     actions
   end
 

@@ -22,7 +22,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 
-#JsonRepsone
+#jsonResponse
 gem 'active_model_serializers'
 
 

@@ -2,7 +2,6 @@ ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation, :name
 
 
-
   index do
     column :email
     column :name
@@ -16,7 +15,7 @@ ActiveAdmin.register AdminUser do
       f.input :password
       f.input :password_confirmation
     end
-    f.actions
+      f.actions
   end
 
   filter :name

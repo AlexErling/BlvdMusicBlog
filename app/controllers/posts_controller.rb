@@ -13,11 +13,12 @@ class PostsController < ApiController
 
   def show
     @post
-    render :json => @post
+    render :json => @post.as_json(methods: :image_url)
   end
 
   def create
     @post = Post.new(post_params)
+    @post.admin_user = current_admin_user
   end
 
   def update
