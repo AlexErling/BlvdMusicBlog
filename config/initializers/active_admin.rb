@@ -8,8 +8,6 @@ ActiveAdmin.setup do |config|
 
   config.register_stylesheet '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin,latin-ext'
 
-  config.authorization_adapter = "AdminAuthorization"
-
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

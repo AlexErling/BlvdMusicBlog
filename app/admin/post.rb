@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body, :admin_user_id, :post_type, :link, :song_title, :image, :tag_list
+  permit_params :title, :body, :admin_user_id, :post_type, :link, :song_title, :tag_list
 
 
   form do |f|
@@ -11,7 +11,7 @@ ActiveAdmin.register Post do
       f.input :body
       f.input :link
       f.input :tag_list, label: "Tags"
-      f.input :image, as: :file
+      # f.input :image, as: :file
     end
     f.actions
   end
@@ -39,9 +39,9 @@ ActiveAdmin.register Post do
       row :body
       row :link
       list_row :tag_list
-      row :image do |post|
-        image_tag url_for(post.image), class: 'large'
-      end
+      # row :image do |post|
+      #   image_tag url_for(post.image), class: 'large'
+      # end
     end
   end
 

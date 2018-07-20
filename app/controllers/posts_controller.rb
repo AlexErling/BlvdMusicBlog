@@ -13,7 +13,7 @@ class PostsController < ApiController
 
   def show
     @post
-    render :json => @post.as_json(methods: :image_url)
+    render :json => @post
   end
 
   def create
@@ -34,7 +34,7 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :song_title, :post_type, :admin_user_id, :link, :tag_list, :image)
+    params.require(:post).permit(:title, :body, :song_title, :post_type, :admin_user_id, :link, :tag_list)
   end
 
   def set_post
