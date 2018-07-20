@@ -17,7 +17,7 @@ gem 'activeadmin_addons'
 gem 'jquery-rails'
 gem 'active_skin'
 
-#Getting SCSS to work 
+#Getting SCSS to work
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -25,8 +25,6 @@ gem 'coffee-rails'
 #JsonRepsone
 gem 'active_model_serializers'
 
-#Paperclip for images
-gem 'paperclip'
 
 #Tagging
 gem 'acts-as-taggable-on', '~> 6.0'

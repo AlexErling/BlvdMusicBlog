@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body, :admin_user_id, :post_type, :link, :song_title, :tag_ids => []
+  permit_params :title, :body, :admin_user_id, :post_type, :link, :song_title, :image, :tag_list
 
 
   form do |f|
@@ -10,8 +10,43 @@ ActiveAdmin.register Post do
       f.input :song_title
       f.input :body
       f.input :link
-      f.input :tags
+      f.input :tag_list, label: "Tags"
+      f.input :image, as: :file
     end
     f.actions
   end
+
+  index do
+    selectable_column
+    column :title
+    column :post_type
+    column :created_at
+    column "Post by:", :admin_user
+    column  "Tags", :tag_list
+    column :image do |post|
+      image_tag url_for(post.image), class: 'thumbnail'
+    end
+    actions
+  end
+
+  show do
+    attributes_table do
+      row :admin_user
+      row :post_type
+      row :title
+      row :song_title
+      row :body
+      row :link
+      list_row :tag_list
+      row :image do |post|
+        image_tag url_for(post.image), class: 'large'
+      end
+    end
+  end
+
+
+  filter :tags
+  filter :admin_user
+  filter :title
+  filter :body
 end

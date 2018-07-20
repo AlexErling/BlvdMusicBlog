@@ -7,6 +7,7 @@ class PostsController < ApiController
     else
       @posts = Post.all
     end
+
     render :json => @posts
   end
 
@@ -17,7 +18,6 @@ class PostsController < ApiController
 
   def create
     @post = Post.new(post_params)
-    render :json => @post, status => :ok
   end
 
   def update
@@ -33,7 +33,7 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :song_title, :post_type, :admin_user_id, :link, :tag_list)
+    params.require(:post).permit(:title, :body, :song_title, :post_type, :admin_user_id, :link, :tag_list, :image)
   end
 
   def set_post
