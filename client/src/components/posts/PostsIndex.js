@@ -1,2 +1,10 @@
 import React from 'react';
-import axios from 'axios';
+
+const PostsIndex = () => {
+  <div>
+  posts
+  </div>
+
+};
+
+export default PostsIndex
