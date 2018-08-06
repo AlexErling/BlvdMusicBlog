@@ -1,24 +1,6 @@
-# README
+ThisIsTheSong is a music blog focusing on all sorts of electronic music. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The backend api has been created with Ruby on Rails API and Active Admin.
+The frontend is being built with Javascript using the React Framework.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+We are hoping to get the site online as soon as possible to start sharing music with everyone.
