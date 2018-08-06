@@ -1,10 +1,13 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body, :admin_user_id, :post_type, :link, :song_title, :tag_list
-
+  permit_params :title, :body, :user_id, :post_type, :link, :song_title, :tag_list
+  scope_to :current_user, unless: proc {current_user.admin?}
 
   form do |f|
+    f.object.user = current_user
     f.inputs "Post Details" do
-      f.input :admin_user
+      if current_user.admin?
+        f.input :user
+      end
       f.input :post_type
       f.input :title
       f.input :song_title
@@ -22,7 +25,7 @@ ActiveAdmin.register Post do
     column :title
     column :post_type
     column :created_at
-    column "Post by:", :admin_user
+    column "Post by:", :user
     column  "Tags", :tag_list
     # column :image do |post|
     #   image_tag url_for(post.image), class: 'thumbnail'
@@ -32,7 +35,7 @@ ActiveAdmin.register Post do
 
   show do
     attributes_table do
-      row :admin_user
+      row :user
       row :post_type
       row :title
       row :song_title
@@ -44,7 +47,6 @@ ActiveAdmin.register Post do
       # end
     end
   end
-
 
   filter :tags
   filter :admin_user

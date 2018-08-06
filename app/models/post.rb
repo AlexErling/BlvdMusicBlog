@@ -1,12 +1,12 @@
 class Post < ApplicationRecord
-  belongs_to :admin_user
+  belongs_to :user
   # has_one_attached :image
   enum post_type: [ :Song, :Playlist, :Video, :Event ]
   acts_as_taggable
 
 
   #Validations
-  validate :correct_image_type
+  # validate :correct_image_type
   validates :post_type, :presence => true
   validates :title, length: { maximum: 150}, :presence => true
   validates :body, :presence => true

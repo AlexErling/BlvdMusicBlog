@@ -4,9 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "ThisIsTheSong"
-
-  config.register_stylesheet '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin,latin-ext'
+  config.site_title = "This Is The Song"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -26,7 +24,7 @@ ActiveAdmin.setup do |config|
   # will be added to.
   #
   # eg:
-  #   config.default_namespace = :hello_world
+    # config.default_namespace = :Users
   #
   # This will create resources in the HelloWorld module and
   # will namespace routes to /hello_world/*
@@ -35,7 +33,7 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-  # config.default_namespace = :admin
+  config.default_namespace = :staff
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -56,7 +54,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_admin_user!
+  config.authentication_method = :authenticate_user!
 
   # == User Authorization
   #
@@ -65,7 +63,9 @@ ActiveAdmin.setup do |config|
   # ensure that there is a user with proper rights. You can use
   # CanCanAdapter or make your own. Please refer to documentation.
   # config.authorization_adapter = ActiveAdmin::CanCanAdapter
-
+  # config.authorization_adapter = ActiveAdmin::PunditAdapter
+  #
+  # config.pundit_default_policy = "ApplicationPolicy"
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
   # case when Pundit is unable to find suitable policy.
@@ -88,7 +88,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  config.current_user_method = :current_user
 
   # == Logging Out
   #
@@ -100,7 +100,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..

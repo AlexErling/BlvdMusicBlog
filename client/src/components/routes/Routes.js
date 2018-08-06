@@ -3,11 +3,12 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
+import PostsIndex from "../posts/PostsIndex"
 
 const Routes = () => (
   <Router>
     <div>
-    <Route path="/" exact strict component={Home} />
+    <Route path="/" exact strict component={PostsIndex} />
     <Route path="/about" exact strict component={About} />
     <Route path="/contact" exact strict component={Contact} />
     </div>
