@@ -20,15 +20,15 @@ class Tags extends Component {
         this.setState({ tags: response.data });
       })
       .catch(error => console.log(error));
-
   }
 
 
   render() {
+    console.log(this.props.match.params.tag)
     return(
       <div>
         <div className = "heading centered">
-          <h1> Tags </h1>
+          <h1> Tag: {this.props.match.params.tag} </h1>
         </div>
         {this.state.tags.map((tag) => {
           return(

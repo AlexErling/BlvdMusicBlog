@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import styles from './posts.css';
 import Post from './Post.js';
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 
 class PostIndex extends Component {
 
@@ -25,6 +26,11 @@ class PostIndex extends Component {
   render() {
     return (
       <div>
+
+        <InfiniteScroll
+        dataLength = {this.state.posts.length}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}>
         <div className = "heading centered">
           <h1> Posts </h1>
         </div>
@@ -34,6 +40,7 @@ class PostIndex extends Component {
 
           )
         })}
+        </InfiniteScroll>
       </div>
     );
   }

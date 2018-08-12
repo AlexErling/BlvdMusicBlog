@@ -44,13 +44,13 @@ export default Team
 
 
 class Member extends Component {
-  
+
   render(){
     return (
       <div className = "card">
           <Card >
       <Card.Content>
-        <Image size='medium' fluid centered src={this.props.member.avatar} />
+        <Image size='medium' centered src={this.props.member.avatar} />
         <Card.Header>{this.props.member.name}</Card.Header>
         <Card.Meta>{this.props.member.location}</Card.Meta>
         <Card.Description>{this.props.member.bio}.</Card.Description>

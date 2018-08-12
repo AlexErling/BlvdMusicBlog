@@ -1,14 +1,15 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from "../pages/Home"
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import About from "../pages/About"
 import Contact from "../pages/Contact"
 import Team from "../pages/Team"
+import SongSubmission from "../pages/SongSubmission"
 import PostIndex from "../posts/PostIndex"
 import PostShow from "../posts/PostShow"
 import Tags from "../posts/Tags"
 import NavBar from '..//navigation/NavBar'
 import Footer from '..//navigation/Footer'
+import Search from '..//search/Search'
 
 const Routes = () => (
   <Router>
@@ -23,8 +24,11 @@ const Routes = () => (
             <Route path="/contact" exact strict component={Contact} />
             <Route path="/posts" exact strict component={PostIndex} />
             <Route path="/team" exact strict component={Team} />
+            <Route path="/songsubmission" exact strict component={SongSubmission} />
             <Route path={"/post/:postId"} exact strict component={PostShow} />
             <Route path={"/tag/:tag"}  exact strict component={Tags} />
+            <Route path={"/search/:query"}  exact strict component={Search} />
+            <Redirect to="/posts" />
           </Switch>
         </div>
 

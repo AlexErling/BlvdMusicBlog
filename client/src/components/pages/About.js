@@ -2,8 +2,8 @@ import React from 'react';
 
 
 const About = () => (
-  <div>
-    About Page
+  <div className = "centered">
+  
   </div>
 );
 
