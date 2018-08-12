@@ -9,7 +9,7 @@ class PostsController < ApiController
       @posts = Post.all
     end
     authorize @posts
-    render :json => @posts
+    render :json => @posts.order('created_at DESC')
   end
 
   def show
@@ -21,6 +21,7 @@ class PostsController < ApiController
 
   def create
     @post = Post.new(post_params)
+    @post.created_at.to_date
     authorize @post
   end
 
@@ -39,10 +40,14 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :song_title, :post_type, :user_id, :link, :tag_list)
+    params.require(:post).permit(:title, :body, :song_title, :post_type, :user_id, :link, :tag_list, :image)
   end
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def created_at
+    attributes['created_at'].strftime("%m/%d/%Y %H:%M")
   end
 end

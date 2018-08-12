@@ -1,20 +1,22 @@
 import React from 'react';
-import {Menu, Image} from 'semantic-ui-react'
 
 const Footer = () => (
-  <div class="ui inverted vertical footer segment">
-  <Image src="assets/images/logo.png" class="ui centered mini image"/>
-    <div class="ui horizontal inverted small divided link list">
-        <a class="item" href="/admin">Site Map</a>
-        <a class="item" href="/contact">Contact Us</a>
-        <a class="item" href="#">Terms and Conditions</a>
-        <a class="item" href="#">Privacy Policy</a>
-    </div>
-    <div class="ui inverted section divider"></div>
+  <div className="ui  centered vertical footer segment">
 
-    <p>Copyright © 2015 thissongslaps.com</p>
+    <div className="ui horizontal  small divided link list">
+        <a className="item" href="/admin">Site Map</a>
+        <a className="item" href="/contact">Contact Us</a>
+        <a className="item" href="#">Terms and Conditions</a>
+        <a className="item" href="#">Privacy Policy</a>
+    </div>
+    <div className="ui inverted divider"></div>
+
+    <small>Copyright © 2018 thisisthesong.com</small>
   </div>
 );
 
 
 export default Footer
+
+
+  // <Image src="assets/images/logo.png" class="ui centered mini image"/>

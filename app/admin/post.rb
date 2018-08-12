@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body, :user_id, :post_type, :link, :song_title, :tag_list
+  permit_params :title, :body, :user_id, :post_type, :link, :song_title, :tag_list, :image
   scope_to :current_user, unless: proc {current_user.admin?}
 
   form do |f|
@@ -14,6 +14,7 @@ ActiveAdmin.register Post do
       f.input :body
       f.input :link
       f.input :tag_list, label: "Tags"
+      f.input :image
       # f.input :image, as: :file
     end
     f.actions
@@ -27,9 +28,7 @@ ActiveAdmin.register Post do
     column :created_at
     column "Post by:", :user
     column  "Tags", :tag_list
-    # column :image do |post|
-    #   image_tag url_for(post.image), class: 'thumbnail'
-    # end
+    image_column :image, style: :thumb
     actions
   end
 
@@ -42,9 +41,8 @@ ActiveAdmin.register Post do
       row :body
       row :link
       list_row :tag_list
-      # row :image do |post|
-      #   image_tag url_for(post.image), class: 'large'
-      # end
+      image_row :image, style: :large
+
     end
   end
 

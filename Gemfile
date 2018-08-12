@@ -26,6 +26,9 @@ gem 'coffee-rails'
 gem 'active_model_serializers'
 
 
+gem "paperclip", "~> 6.0.0"
+
+
 #Tagging
 gem 'acts-as-taggable-on', '~> 6.0'
 

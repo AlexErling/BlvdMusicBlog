@@ -1,27 +1,41 @@
-import React from 'react';
-import {Menu, Input, Dropdown} from 'semantic-ui-react'
+import React, {Component} from 'react';
+import {Menu, Search} from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 
-const NavBar = () => (
-  <Menu size ='huge'>
-    <Menu.Item href='/'>
-      This Is The Song
-    </Menu.Item>
-    <Dropdown item text='Posts'>
-      <Dropdown.Menu>
-        <Dropdown.Item>Songs</Dropdown.Item>
-        <Dropdown.Item>Playlists</Dropdown.Item>
-        <Dropdown.Item>Videos</Dropdown.Item>
-        <Dropdown.Item>Events</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-    <Menu.Item href='/about' link>About</Menu.Item>
-    <Menu.Item link>Song Submission</Menu.Item>
-    <Menu.Item href='contact' link>Contact</Menu.Item>
-    <Menu.Item position='right'>
-      <Input className='icon' icon='search' placeholder='Search...' />
-    </Menu.Item>
+class NavBar extends Component {
 
-  </Menu>
-);
+  constructor(props) {
+    super(props)
+    this.state = {
+      activeItem: [this.props.to]
+    }
+  }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+    return (
+<div>
+    <div>
+      <h1 className = "centered"> thisisthesong </h1>
+    </div>
+    <Menu stackable pointing secondary>
+      <Menu.Item as={NavLink} to='/posts'name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+      </Menu.Item>
+      <Menu.Item as={NavLink} to='/about'name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
+        About
+      </Menu.Item>
+      <Menu.Item as={NavLink} to='/team' name='meettheteam' active={activeItem === 'meettheteam'} onClick={this.handleItemClick} href='/meetthestaff' link>Meet the team</Menu.Item>
+      <Menu.Item as={NavLink} to='/songsubmission'name='songsubmission' active={activeItem === 'songsubmission'} onClick={this.handleItemClick} href="songsubmission">Song Submission</Menu.Item>
+      <Menu.Item as={NavLink} to= '/contact' active={activeItem === 'contact'}>Contact</Menu.Item>
+      <Menu.Item position='right'>
+        <Search/>
+      </Menu.Item>
+    </Menu>
+</div>
+  );
+}
+
+}
 
 export default NavBar

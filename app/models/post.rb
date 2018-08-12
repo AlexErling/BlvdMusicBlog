@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
-  # has_one_attached :image
+  has_attached_file :image, styles: { large: "500x500>", medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   enum post_type: [ :Song, :Playlist, :Video, :Event ]
   acts_as_taggable
-
 
   #Validations
   # validate :correct_image_type
@@ -11,14 +11,5 @@ class Post < ApplicationRecord
   validates :title, length: { maximum: 150}, :presence => true
   validates :body, :presence => true
 
-  # def correct_image_type
-  #   if image.attached? && !image.content_type.in?(%w(image/jpeg image/png))
-  #       errors.add(:image, "Must be a JPEG or PNG.")
-  #   end
-  # end
-
-  # def image_url
-  #   url_for(self.image)
-  # end
 
 end
