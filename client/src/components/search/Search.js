@@ -4,31 +4,30 @@ import Post from './../posts/Post.js';
 import {browserHistory,withRouter} from "react-router-dom"
 
 class Search extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      results: []
-    }
-  }
-
 
     render() {
+      console.log(this.props)
+      const results = this.props.location.state.results
       return(
 
         <div>
           <div className = "heading centered">
-            <h1> Search results for: {this.props.match.params.query} </h1>
+            <h3> Search results for: </h3>
+            <h5>{this.props.match.params.query}</h5>
           </div>
-          {this.state.results.map((post) => {
+
+          <div>
+          {results.map((post) => {
             return(
                 <Post key = {post.id} post={post}/>
-
             )
           })}
+          </div>
+
         </div>
       );
 
     }
 }
 
-export default withRouter(Search)
+export default Search

@@ -18,7 +18,7 @@ class SearchBar extends Component {
    search(query) {
      this.setState({ query });
      axios
-       .get(`/api/search?query=${query}`)
+       .get(`/api/search?per_page=5&page=1&query=${query}`)
        .then(response => {
          this.setState({ results: response.data});
        })
@@ -27,27 +27,20 @@ class SearchBar extends Component {
 
    handleFormSubmit = () => {
    console.log('search:', this.state.query);
-   this.props.action
-   this.props.history.push({pathname: `/search/${this.state.query}`, results: `${this.state.results}`})
+   this.props.history.push({pathname: `/search/${this.state.query}`, state: {results: this.state.results}})
    this.resetComponent()
-
-
-
  }
 
 
   handleInputChange = (query) => {
+    this.setState({ isLoading: true, query: query })
     this.search(query);
-    this.setState({ isLoading: true, query })
 
     setTimeout(() =>
       this.setState({
         isLoading: false,
       }) , 300)
-
   }
-
-  handleResultSelect = (e, { result }) => this.setState({ query: result.title}  )
 
   render () {
 
@@ -57,7 +50,6 @@ class SearchBar extends Component {
       <Form onSubmit={this.handleFormSubmit}>
       <Search
         loading={this.state.isLoading}
-        onResultSelect={this.handleResultSelect}
         onSearchChange={(event) => {this.handleInputChange(event.target.value)}}
         showNoResults={false}
         value={this.state.query}

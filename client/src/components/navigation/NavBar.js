@@ -11,15 +11,9 @@ class NavBar extends Component {
       activeItem: [this.props.to],
       value: ""
     }
-    this.handler = this.handler.bind(this);
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-
-    handler() {
-      this.setState({ activeItem: 'search' });
-    }
 
 
   render() {
@@ -47,11 +41,11 @@ class NavBar extends Component {
       <a href="https://spotify.com" target="_blank"><Icon name = "spotify" color="green" size="large" /></a>
       </Menu.Item>
       <Menu.Item >
-      <a href="https://twitter.com" target="_blank"><Icon name = "twitter"color="blue" size="large" /></a>
+      <a href="https://twitter.com/_ThisIsTheSong_" target="_blank"><Icon name = "twitter"color="blue" size="large" /></a>
       </Menu.Item>
 
       <Menu.Item position ="right" >
-      <SearchBar action={this.handler} />
+      <SearchBar />
       </Menu.Item>
     </Menu>
 </div>

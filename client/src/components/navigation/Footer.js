@@ -2,14 +2,16 @@ import React from 'react';
 
 const Footer = () => (
   <div className="ui  centered vertical footer segment">
+      <div className="ui inverted divider"></div>
 
     <div className="ui horizontal  small divided link list">
         <a className="item" href="/admin">Site Map</a>
         <a className="item" href="/contact">Contact Us</a>
     </div>
-    <div className="ui inverted divider"></div>
 
+    <div>
     <small>Copyright © 2018 thisisthesong.com</small>
+    </div>
   </div>
 );
 
