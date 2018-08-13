@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {Image} from 'semantic-ui-react';
 import {FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon} from 'react-share';
 import {Button, Icon, Grid} from "semantic-ui-react"
+import ReactHtmlParser from 'react-html-parser';
 
 
 
@@ -60,7 +61,7 @@ class Post extends Component {
         </div>
         <div className="ui section divider"></div>
         <div>
-          <div className = "postBody" dangerouslySetInnerHTML={{ __html: this.props.post.body }} />
+          <div className = "postBody"> {ReactHtmlParser(this.props.post.body)}</div>
           <div className="ui section divider"></div>
           <p className = "songTitle centered"> {this.props.post.song_title} </p>
           <div className="ui section divider"></div>
@@ -83,7 +84,7 @@ class Post extends Component {
             </Grid.Row>
           </Grid>
           <div className="ui section divider"></div>
-          <div className = "link centered" dangerouslySetInnerHTML={{ __html: this.props.post.link }} />
+          <div className = "link centered">{ReactHtmlParser(this.props.post.link)}</div>
           <div className="ui section divider"></div>
         </div>
       </div>

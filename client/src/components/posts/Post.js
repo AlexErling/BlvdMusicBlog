@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ToggleDisplay from 'react-toggle-display';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 
 
 
@@ -36,10 +37,10 @@ class Post extends Component {
       </div>
       <ToggleDisplay show={this.state.show}>
       <div className="ui section divider"></div>
-      <div className= "postBody" dangerouslySetInnerHTML={{ __html: this.props.post.body }} />
+      <div className = "postBody"> {ReactHtmlParser(this.props.post.body)}</div>
       <div className="ui section divider"></div>
       <p className = "songTitle"> {this.props.post.song_title} </p>
-      {this.state.show? (<div className = "link" dangerouslySetInnerHTML={{ __html: this.props.post.link }} />) : ("")}
+      {this.state.show? (<div className= "link">{ReactHtmlParser(this.props.post.link)}</div>) : ("")}
       </ToggleDisplay>
       <div className = "centered">
         <Button circular compact size='mini' basic color = "blue" onClick={ () => this.handleClick() }>

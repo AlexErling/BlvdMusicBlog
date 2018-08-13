@@ -23,7 +23,7 @@ const Routes = () => (
          <Switch>
             <Route path="/about" exact strict component={About} />
             <Route path="/contact" exact strict component={Contact} />
-            <Route path="/posts" exact strict component={PostIndex} />
+            <Route path="/" exact strict component={PostIndex} />
             <Route path="/team" exact strict component={Team} />
             <Route path="/pagenotfound" exact strict component={PageNotFound} />
             <Route path="/songsubmission" exact strict component={SongSubmission} />

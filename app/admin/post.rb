@@ -12,7 +12,7 @@ ActiveAdmin.register Post do
       f.input :title
       f.input :song_title
       f.input :body, as: :quill_editor
-      f.input :link, as: :quill_editor
+      f.input :link
       f.input :tag_list, label: "Tags", as: :tags
       f.input :image
       # f.input :image, as: :file

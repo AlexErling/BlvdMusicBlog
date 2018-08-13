@@ -25,7 +25,7 @@ class NavBar extends Component {
        <h1 className = "inline"> thisisthesong </h1>
     </div>
     <Menu stackable pointing secondary>
-      <Menu.Item as={NavLink} to='/posts'name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+      <Menu.Item as={NavLink} to='/'name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
       </Menu.Item>
       <Menu.Item as={NavLink} to='/about'name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
         About
