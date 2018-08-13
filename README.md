@@ -1,21 +1,20 @@
-ThisIsTheSong is a music blog focusing on all sorts of electronic music. 
+ThisIsTheSong is a music blog focusing on all sorts of electronic music. We love listening to music and finding the next great song/artist. We created ThisIsTheSong in order to share what we find with you. We hope you enjoy!
 
+DB: Postgres
+Backend: Ruby on Rails
+Frontend: Javascript/React
+CMS: Active Admin
+CSS: Semantic
 
-When finished the site will include posts with a tagging and responsive searching system. Additionally, the backend will include tiered posting system(admin and staff), where the admin can manage and run the entire site. After that we will consider what other features to add.
+The site can be managed through the Active Admin portal (/staff)
 
-The backend api has been created with Ruby on Rails API and Active Admin.
-The frontend is being built with Javascript using the React Framework.
+The api requests are sent to /api/posts /api/users
 
-We are hoping to get the site online as soon as possible to start sharing music with everyone.
+Frontend: includes a full responsive searching system. Additionally, it includes collapsible elements, infinite scrolling. It is built with Semantic React.
+
+Backend: Includes a tagging system, search capabilities with PG Search, image upload with Paperclip, JSON serialization with Active Modal Serializers
 
 Check out the progress here:
 https://hidden-citadel-10431.herokuapp.com/
 
-
-To checkout backend: 
-Go to /staff/login
-Username: admin@examle.com
-Password: password
-
-To checkout api go to:
-api/posts
+We are hoping to get ThisIsTheSong.com running very soon.
