@@ -9,7 +9,7 @@ class PostsController < ApiController
       @posts = Post.all
     end
     authorize @posts
-    render :json => @posts.order('created_at DESC')
+    paginate :json => @posts.order('created_at DESC')
   end
 
   def show
@@ -35,6 +35,11 @@ class PostsController < ApiController
     @post.destroy
     authorize @post
     head :no_content
+  end
+
+  def search
+    @post = Post.quick_search(params[:query])
+    paginate json: @post
   end
 
   private

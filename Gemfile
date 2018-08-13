@@ -25,9 +25,17 @@ gem 'coffee-rails'
 #jsonResponse
 gem 'active_model_serializers'
 
+gem 'activeadmin_froala_editor'
 
+#images
 gem "paperclip", "~> 6.0.0"
 
+#searching
+gem 'pg_search'
+
+
+#paginationbund
+gem 'api-pagination'
 
 #Tagging
 gem 'acts-as-taggable-on', '~> 6.0'

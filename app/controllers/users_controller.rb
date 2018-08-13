@@ -3,5 +3,4 @@ class UsersController < ApiController
     @users = User.all
     render :json => @users
   end
-
 end

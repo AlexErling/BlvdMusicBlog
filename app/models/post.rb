@@ -5,11 +5,14 @@ class Post < ApplicationRecord
   enum post_type: [ :Song, :Playlist, :Video, :Event ]
   acts_as_taggable
 
-  #Validations
-  # validate :correct_image_type
   validates :post_type, :presence => true
   validates :title, length: { maximum: 150}, :presence => true
   validates :body, :presence => true
 
 
+  include PgSearch
+  pg_search_scope :quick_search,
+                  against: [:title, :song_title],
+                  associated_against: { tags: [:name], user: [:name]},
+                  using: {tsearch: {:prefix => true}}
 end

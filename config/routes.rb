@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :posts
+    get '/search', to: 'posts#search'
     resources :users, only: [:index]
     get 'tags/:tag', to: 'posts#index', as: "tag"
   end
