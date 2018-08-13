@@ -38,29 +38,25 @@ class PostIndex extends Component {
   render() {
     return (
       <div>
-
         <InfiniteScroll
-        dataLength = {this.state.posts.length}
-        next={this.fetchMoreData}
-        hasMore={this.state.hasMore}
-        loader={<Loader active={this.state.hasMore} inline="centered">Loading</Loader>}
-        endMessage={<div className="centered">No more results</div>}
+          dataLength = {this.state.posts.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.hasMore}
+          loader={<Loader active={this.state.hasMore} inline="centered">Loading</Loader>}
+          endMessage={<div className="centered">No more results</div>}
          >
-        <div className = "heading centered">
-          <h1> Posts </h1>
-
-        </div>
-        {this.state.posts.map((post) => {
-          return(
+          <div className = "heading centered">
+            <h1> Posts </h1>
+          </div>
+          {this.state.posts.map((post) => {
+            return(
               <Post key = {post.id} post={post}/>
-
-          )
-        })}
+            )
+          })}
         </InfiniteScroll>
       </div>
     );
   }
-
 }
 
 export default PostIndex

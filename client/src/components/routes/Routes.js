@@ -7,6 +7,7 @@ import SongSubmission from "../pages/SongSubmission"
 import PostIndex from "../posts/PostIndex"
 import PostShow from "../posts/PostShow"
 import Tags from "../posts/Tags"
+import PageNotFound from "../pages/PageNotFound"
 import NavBar from '..//navigation/NavBar'
 import Footer from '..//navigation/Footer'
 import Search from '..//search/Search'

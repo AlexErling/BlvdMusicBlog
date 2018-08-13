@@ -24,7 +24,7 @@ class Team extends Component {
   render() {
     return (
       <div>
-        <Card.Group>
+        <Card.Group centered>
           {this.state.team.map((member) => {
             return(
               <div key = {member.id}>

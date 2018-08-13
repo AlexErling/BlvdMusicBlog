@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import {Image} from 'semantic-ui-react'
+import {Image} from 'semantic-ui-react';
+import {FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon} from 'react-share';
+import {Button, Icon, Grid} from "semantic-ui-react"
 
 
 
@@ -39,12 +41,13 @@ class Post extends Component {
 
 
   render() {
+    var url = window.location.href
     const Img = () => <Image className=" centered image" src={this.props.post.image} />
     var dateOptions = {year: 'numeric', month: 'long', day: 'numeric'}
     var date = new Date(this.props.post.created_at).toLocaleDateString("en-US", dateOptions)
     var tagLength = this.props.post.tag_list.length
     var tagList = this.props.post.tag_list.map(function(tags, index){
-      return     <li key = {index}><Link to={'/tag/'+ tags }>{tags}{index < tagLength - 1 && ', '}</Link></li>
+      return <li key = {index}><Link to={'/tag/'+ tags }>{tags}{index < tagLength - 1 && ', '}</Link></li>
     })
 
 
@@ -59,16 +62,48 @@ class Post extends Component {
         <div className="ui section divider"></div>
         <div className="centered">
           <Img />
+
+
+
+
         </div>
         <div className="ui section divider"></div>
         <div>
-          <p className= "postBody"> {this.props.post.body} </p>
+          <div className = "postBody" dangerouslySetInnerHTML={{ __html: this.props.post.body }} />
           <div className="ui section divider"></div>
           <p className = "songTitle centered"> {this.props.post.song_title} </p>
           <div className="ui section divider"></div>
+          <Grid>
+            <Grid.Row columns={2} divided>
+              <Grid.Column>
+                <FacebookShareButton  url={url} quote={this.props.post.title}>
+                  <Button fluid color='facebook'>
+                    <Icon name='facebook' /> Share
+                    </Button>
+                </FacebookShareButton>
+              </Grid.Column>
+
+              <Grid.Column>
+              <TwitterShareButton url={url}  via="_ThisIsTheSong_" title={this.props.post.title}>
+                <Button fluid color='twitter'>
+                  <Icon name='twitter' /> Tweet
+                  </Button>
+              </TwitterShareButton>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+                    <div className="ui section divider"></div>
           <div className = "link centered" dangerouslySetInnerHTML={{ __html: this.props.post.link }} />
+
         </div>
+        <div>
+
+        </div>
+
+
         <div className="ui section divider"></div>
+
+
       </div>
     );
   }

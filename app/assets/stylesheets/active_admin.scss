@@ -11,11 +11,11 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+$skinLogo: none;
 @import "active_skin";
-@import 'font-awesome/font-awesome';
-@import 'activeadmin/froala_editor_input';
+@import 'activeadmin/quill_editor_input';
 // $skinLogo: url("admin_logo.png") no-repeat 0 0;
-// $skinLogo: none;
+
 // $skinActiveColor: #001cee;
 // $skinHeaderBck: #002744;
 // $panelHeaderBck: #002744;
@@ -25,16 +25,3 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
-
-.thumbnail {
-  height: auto;
-  width: 300px;
-//   margin: auto;
-//   text-align: center;
-}
-
-.large {
-  width: 50%;
-  height: auto;
-  // margin: auto;
-}

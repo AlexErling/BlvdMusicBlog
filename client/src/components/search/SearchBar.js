@@ -16,10 +16,12 @@ class SearchBar extends Component {
    resetComponent = () => this.setState({ isLoading: false, results: [], query: '' })
 
    search(query) {
+     console.log(query)
      this.setState({ query });
      axios
-       .get(`/api/search?per_page=5&page=1&query=${query}`)
+       .get(`/api/search?query=${query}`)
        .then(response => {
+         console.log(response.data)
          this.setState({ results: response.data});
        })
        .catch(error => console.log(error));
@@ -31,6 +33,7 @@ class SearchBar extends Component {
    this.resetComponent()
  }
 
+handleResultSelect = (e, { result }) => {this.handleInputChange(result.title)}
 
   handleInputChange = (query) => {
     this.setState({ isLoading: true, query: query })
@@ -51,10 +54,11 @@ class SearchBar extends Component {
       <Search
         loading={this.state.isLoading}
         onSearchChange={(event) => {this.handleInputChange(event.target.value)}}
+        onResultSelect={this.handleResultSelect}
         showNoResults={false}
         value={this.state.query}
+        results={this.state.results}
         resultRenderer={resultRenderer}
-        results ={this.state.results}
         type={"submit"}
         { ...this.props}  />
       </Form>

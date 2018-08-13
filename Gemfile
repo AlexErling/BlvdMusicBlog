@@ -25,7 +25,8 @@ gem 'coffee-rails'
 #jsonResponse
 gem 'active_model_serializers'
 
-gem 'activeadmin_froala_editor'
+
+gem 'activeadmin_quill_editor'
 
 #images
 gem "paperclip", "~> 6.0.0"

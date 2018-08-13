@@ -6,7 +6,6 @@ import {browserHistory,withRouter} from "react-router-dom"
 class Search extends Component {
 
     render() {
-      console.log(this.props)
       const results = this.props.location.state.results
       return(
 
@@ -23,7 +22,6 @@ class Search extends Component {
             )
           })}
           </div>
-
         </div>
       );
 
