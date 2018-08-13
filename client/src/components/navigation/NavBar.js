@@ -35,10 +35,10 @@ class NavBar extends Component {
       <Menu.Item as={NavLink} to= '/contact' name='contact' active={activeItem === 'contact'} onClick={this.handleItemClick}>Contact</Menu.Item>
 
       <Menu.Item >
-      <a href="https://soundcloud.com" target="_blank"><Icon name="soundcloud" color="orange" size="large" /></a>
+      <a href="https://soundcloud.com/thisisthesongblog" target="_blank"><Icon name="soundcloud" color="orange" size="large" /></a>
       </Menu.Item>
       <Menu.Item >
-      <a href="https://spotify.com" target="_blank"><Icon name = "spotify" color="green" size="large" /></a>
+      <a href="https://open.spotify.com/user/g0sjkx99hjo0afhpe0969lgjv?si=wHgwc6-uRWCtH6V9fd0aOg" target="_blank"><Icon name = "spotify" color="green" size="large" /></a>
       </Menu.Item>
       <Menu.Item >
       <a href="https://twitter.com/_ThisIsTheSong_" target="_blank"><Icon name = "twitter"color="blue" size="large" /></a>

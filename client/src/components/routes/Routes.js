@@ -25,21 +25,20 @@ const Routes = () => (
             <Route path="/contact" exact strict component={Contact} />
             <Route path="/posts" exact strict component={PostIndex} />
             <Route path="/team" exact strict component={Team} />
+            <Route path="/pagenotfound" exact strict component={PageNotFound} />
             <Route path="/songsubmission" exact strict component={SongSubmission} />
             <Route path={"/post/:postId"} exact strict component={PostShow} />
             <Route path={"/tag/:tag"}  exact strict component={Tags} />
             <Route path={"/search/:query"}  exact strict component={Search} />
-            <Redirect to="/posts" />
+            <Redirect to="/pagenotfound" />
           </Switch>
         </div>
-
     </div>
-          <Footer />
+    <Footer />
     </div>
   </Router>
 
 );
-
 
 
 export default Routes

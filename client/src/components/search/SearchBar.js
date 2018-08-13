@@ -13,27 +13,25 @@ class SearchBar extends Component {
      this.resetComponent()
    }
 
-   resetComponent = () => this.setState({ isLoading: false, results: [], query: '' })
+  resetComponent = () => this.setState({ isLoading: false, results: [], query: '' })
 
-   search(query) {
-     console.log(query)
-     this.setState({ query });
-     axios
-       .get(`/api/search?query=${query}`)
-       .then(response => {
-         console.log(response.data)
-         this.setState({ results: response.data});
-       })
-       .catch(error => console.log(error));
-   }
+  search(query) {
+    this.setState({ query });
+    axios
+      .get(`/api/search?query=${query}`)
+      .then(response => {
+      console.log(response.data)
+      this.setState({ results: response.data});
+      })
+      .catch(error => console.log(error));
+    }
 
    handleFormSubmit = () => {
-   console.log('search:', this.state.query);
-   this.props.history.push({pathname: `/search/${this.state.query}`, state: {results: this.state.results}})
-   this.resetComponent()
- }
+     this.props.history.push({pathname: `/search/${this.state.query}`, state: {results: this.state.results}})
+     this.resetComponent()
+   }
 
-handleResultSelect = (e, { result }) => {this.handleInputChange(result.title)}
+   handleResultSelect = (e, { result }) => {this.handleInputChange(result.title)}
 
   handleInputChange = (query) => {
     this.setState({ isLoading: true, query: query })
@@ -41,8 +39,9 @@ handleResultSelect = (e, { result }) => {this.handleInputChange(result.title)}
 
     setTimeout(() =>
       this.setState({
-        isLoading: false,
-      }) , 300)
+      isLoading: false,
+      }) , 300
+    )
   }
 
   render () {
@@ -65,7 +64,6 @@ handleResultSelect = (e, { result }) => {this.handleInputChange(result.title)}
 
     );
   }
-
 }
 
 

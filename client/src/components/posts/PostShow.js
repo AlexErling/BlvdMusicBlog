@@ -9,24 +9,23 @@ import {Button, Icon, Grid} from "semantic-ui-react"
 
 export default class PostShow extends Component {
 
-constructor(props) {
-  super(props)
-  this.state = {
-    post: null
-  };
-}
+  constructor(props) {
+    super(props)
+    this.state = {
+      post: null
+    };
+  }
 
-componentDidMount() {
-  const { match: { params } } = this.props;
-  axios
-    .get(`/api/posts/${params.postId}`)
-    .then(response => {
-      console.log(response);
-      this.setState({ post: response.data});
-    })
-    .catch(error => console.log(error));
-
-}
+  componentDidMount() {
+    const { match: { params } } = this.props;
+    axios
+      .get(`/api/posts/${params.postId}`)
+      .then(response => {
+        console.log(response);
+        this.setState({ post: response.data});
+      })
+      .catch(error => console.log(error));
+  }
 
   render() {
     return (
@@ -39,10 +38,8 @@ componentDidMount() {
 
 class Post extends Component {
 
-
   render() {
     var url = window.location.href
-    const Img = () => <Image className=" centered image" src={this.props.post.image} />
     var dateOptions = {year: 'numeric', month: 'long', day: 'numeric'}
     var date = new Date(this.props.post.created_at).toLocaleDateString("en-US", dateOptions)
     var tagLength = this.props.post.tag_list.length
@@ -50,22 +47,16 @@ class Post extends Component {
       return <li key = {index}><Link to={'/tag/'+ tags }>{tags}{index < tagLength - 1 && ', '}</Link></li>
     })
 
-
     return (
-
 
       <div>
         <div className="centered">
-            <h3>{this.props.post.title}</h3>
-            <small className ="small" >{this.props.post.post_type}  | Posted by {this.props.post.user.name} | {date} | Tags: {tagList} </small>
+          <h3>{this.props.post.title}</h3>
+          <small className ="small" >{this.props.post.post_type}  | Posted by {this.props.post.user.name} | {date} | Tags: {tagList} </small>
         </div>
         <div className="ui section divider"></div>
         <div className="centered">
-          <Img />
-
-
-
-
+          <Image className="centered image" src={this.props.post.image}/>
         </div>
         <div className="ui section divider"></div>
         <div>
@@ -79,31 +70,22 @@ class Post extends Component {
                 <FacebookShareButton  url={url} quote={this.props.post.title}>
                   <Button fluid color='facebook'>
                     <Icon name='facebook' /> Share
-                    </Button>
+                  </Button>
                 </FacebookShareButton>
               </Grid.Column>
-
               <Grid.Column>
-              <TwitterShareButton url={url}  via="_ThisIsTheSong_" title={this.props.post.title}>
-                <Button fluid color='twitter'>
-                  <Icon name='twitter' /> Tweet
+                <TwitterShareButton url={url}  via="_ThisIsTheSong_" title={this.props.post.title}>
+                  <Button fluid color='twitter'>
+                    <Icon name='twitter' /> Tweet
                   </Button>
-              </TwitterShareButton>
+                </TwitterShareButton>
               </Grid.Column>
             </Grid.Row>
           </Grid>
-                    <div className="ui section divider"></div>
+          <div className="ui section divider"></div>
           <div className = "link centered" dangerouslySetInnerHTML={{ __html: this.props.post.link }} />
-
+          <div className="ui section divider"></div>
         </div>
-        <div>
-
-        </div>
-
-
-        <div className="ui section divider"></div>
-
-
       </div>
     );
   }

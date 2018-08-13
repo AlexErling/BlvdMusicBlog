@@ -24,7 +24,6 @@ class Tags extends Component {
 
 
   render() {
-    console.log(this.props.match.params.tag)
     return(
       <div>
         <div className = "heading centered">
@@ -33,14 +32,11 @@ class Tags extends Component {
         {this.state.tags.map((tag) => {
           return(
               <Post key = {tag.id} post={tag}/>
-
           )
         })}
       </div>
-
     );
   }
 }
-
 
 export default Tags

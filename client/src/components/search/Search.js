@@ -14,7 +14,6 @@ class Search extends Component {
             <h3> Search results for: </h3>
             <h5>{this.props.match.params.query}</h5>
           </div>
-
           <div>
           {results.map((post) => {
             return(
@@ -24,7 +23,6 @@ class Search extends Component {
           </div>
         </div>
       );
-
     }
 }
 
