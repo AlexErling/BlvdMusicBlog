@@ -31,7 +31,7 @@ class PostIndex extends Component {
         this.setState({posts: this.state.posts.concat(response.data), pageIndex: 1 + this.state.pageIndex });
       })
       .catch(error => console.log(error));
-    }, 1500);
+    }, 500);
   }
 
   render() {

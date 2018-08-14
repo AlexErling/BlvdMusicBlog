@@ -6,16 +6,16 @@ const SongSubmission = () => (
   <div>
 
       <div>
-        <p>
+
             <h3>
             Are you interested in being on the blog?
-                </h3>
-        </p>
-        <p>
+              </h3>
+
+
           <h5>
             Send an email to: thisisthesong_submission@gmail.com and if we like what we see we will post it on the blog!
             </h5>
-        </p>
+
       </div>
 
   </div>
