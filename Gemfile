@@ -29,7 +29,7 @@ gem 'active_model_serializers'
 gem 'activeadmin_quill_editor'
 
 #images
-gem "paperclip", "~> 6.0.0"
+gem "paperclip"
 gem 'aws-sdk', '~> 2.3'
 
 #searching
