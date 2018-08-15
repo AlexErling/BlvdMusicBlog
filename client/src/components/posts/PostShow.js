@@ -18,7 +18,10 @@ export default class PostShow extends Component {
   componentDidMount() {
     const { match: { params } } = this.props;
     axios
-      .get(`/api/posts/${params.postId}`)
+    .get(`/api/posts/${params.postId}`, {
+      headers: {
+         'Access-Control-Allow-Origin': '*',
+       }})
       .then(response => {
         console.log(response);
         this.setState({ post: response.data});
