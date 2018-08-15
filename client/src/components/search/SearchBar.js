@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Search, List, Form} from 'semantic-ui-react';
-import {browserHistory,withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom"
 import axios from 'axios';
 
 class SearchBar extends Component {

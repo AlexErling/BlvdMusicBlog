@@ -24,7 +24,7 @@ class PostIndex extends Component {
     axios
       .get(`/api/posts/?per_page=5&page=${this.state.pageIndex}`)
       .then(response => {
-        if (response.data.length==0){
+        if (response.data.length===0){
           this.setState({hasMore: false})
           return
         }

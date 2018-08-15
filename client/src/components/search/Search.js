@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import Post from './../posts/Post.js';
-import {browserHistory,withRouter} from "react-router-dom"
 
 class Search extends Component {
 

@@ -13,9 +13,8 @@ ActiveAdmin.register Post do
       f.input :song_title
       f.input :body, as: :quill_editor
       f.input :link
-      f.input :tag_list, label: "Tags", as: :tags
-      f.input :image
-      # f.input :image, as: :file
+      f.input :tag_list, label: "Tags (separated by commas)"
+      f.input :image, hint: f.post.image? ? image_tag(f.post.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
     f.actions
   end
@@ -41,7 +40,7 @@ ActiveAdmin.register Post do
       row :body
       row :link
       list_row :tag_list
-      image_row :image, style: :large
+      image_row :image, style: :thumb
 
     end
   end

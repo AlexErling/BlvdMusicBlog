@@ -2,11 +2,9 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {Image} from 'semantic-ui-react';
-import {FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon} from 'react-share';
+import {FacebookShareButton, TwitterShareButton} from 'react-share';
 import {Button, Icon, Grid} from "semantic-ui-react"
 import ReactHtmlParser from 'react-html-parser';
-
-
 
 export default class PostShow extends Component {
 
