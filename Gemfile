@@ -30,7 +30,7 @@ gem 'activeadmin_quill_editor'
 
 #images
 gem "paperclip"
-gem 'aws-sdk', '~> 2.3'
+gem "aws-sdk-s3"
 
 #searching
 gem 'pg_search'
