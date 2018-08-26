@@ -45,7 +45,7 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :song_title, :post_type, :user_id, :link, :tag_list, :image, :url_slug)
+    params.require(:post).permit(:title, :body, :post_name, :post_type, :user_id, :link, :tag_list, :image, :url_slug)
   end
 
   def set_post

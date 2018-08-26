@@ -40,7 +40,7 @@ class Post extends Component {
       <div className="ui section divider"></div>
       <div className = "postBody"> {ReactHtmlParser(this.props.post.body)}</div>
       <div className="ui section divider"></div>
-      <p className = "songTitle"> {this.props.post.song_title} </p>
+      <p className = "songTitle"> {this.props.post.post_name} </p>
       {this.state.show? (<div className= "link">{ReactHtmlParser(this.props.post.link)}</div>) : ("")}
       </ToggleDisplay>
       <div className = "centered">

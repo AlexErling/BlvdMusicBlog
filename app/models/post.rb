@@ -13,15 +13,16 @@ class Post < ApplicationRecord
 
 
   validates :post_type, :presence => true
+  validates :url_slug, :presence => true, :uniqueness => true
   validates :title, length: { maximum: 150}, :presence => true
   validates :body, :presence => true
-  validates :song_title, :uniqueness => true, :presence => true
+  validates :post_name
 
 
 
   include PgSearch
   pg_search_scope :quick_search,
-                  against: [:title, :song_title],
+                  against: [:title, :post_name],
                   associated_against: { tags: [:name], user: [:name]},
                   using: {tsearch: {:prefix => true}}
 end

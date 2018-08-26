@@ -63,7 +63,7 @@ class Post extends Component {
         <div>
           <div className = "postBody"> {ReactHtmlParser(this.props.post.body)}</div>
           <div className="ui section divider"></div>
-          <p className = "songTitle centered"> {this.props.post.song_title} </p>
+          <p className = "songTitle centered"> {this.props.post.post_name} </p>
           <div className="ui section divider"></div>
           <Grid>
             <Grid.Row columns={2} divided>

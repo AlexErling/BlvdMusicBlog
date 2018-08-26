@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body, :user_id, :post_type, :link, :song_title, :tag_list, :image, :slug, :url_slug
+  permit_params :title, :body, :user_id, :post_type, :link, :post_name, :tag_list, :image, :slug, :url_slug
   scope_to :current_user, unless: proc {current_user.admin?}
 
   controller do
@@ -19,8 +19,8 @@ ActiveAdmin.register Post do
         f.input :user
       end
       f.input :post_type
-      f.input :title
-      f.input :song_title, label: "Song/Event Title"
+      f.input :title, label: "Post Title"
+      f.input :post_name, label: "Name", hint: "Name of Song, Video, Playlist, Event"
       f.input :body, as: :quill_editor
       f.input :link
       f.input :url_slug, label: "Slug (URL PATH)", hint: "Will be converted to friendly URL Slug"
@@ -47,7 +47,7 @@ ActiveAdmin.register Post do
       row :user
       row :post_type
       row :title
-      row :song_title
+      row :post_name
       row :body
       row :link
       row :slug, label: "URL Link"
