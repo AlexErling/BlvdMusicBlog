@@ -3479,6 +3479,10 @@ inquirer@3.3.0, inquirer@^3.0.6:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
+instafeed.js@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/instafeed.js/-/instafeed.js-1.4.1.tgz#c29d7914563c11722b36cd921a91de2521f9cdaa"
+
 internal-ip@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-1.2.0.tgz#ae9fbf93b984878785d50a8de1b356956058cf5c"
@@ -5739,6 +5743,20 @@ react-infinite-scroll-component@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-infinite-scroll-component/-/react-infinite-scroll-component-4.2.0.tgz#605227dd213987c8d785157a87178acc26d465e1"
 
+react-instafeed@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-instafeed/-/react-instafeed-0.4.0.tgz#09520f40932200081cbed7790972f4f377645bec"
+  dependencies:
+    instafeed.js "1.4.1"
+    prop-types "^15.6.0"
+
+react-mail-form@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-mail-form/-/react-mail-form-1.0.1.tgz#953eea2e90b3d9a2e4aeb13289620dd86ed65d52"
+  dependencies:
+    prop-types "^15.6.1"
+    react "^16.3.2"
+
 react-proptype-conditional-require@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-proptype-conditional-require/-/react-proptype-conditional-require-1.0.4.tgz#69c2d5741e6df5e08f230f36bbc2944ee1222555"
@@ -5877,6 +5895,15 @@ react@^0.13.3:
   resolved "https://registry.yarnpkg.com/react/-/react-0.13.3.tgz#a2dfa85335d7dc02b82b482f089582e64cc13356"
   dependencies:
     envify "^3.0.0"
+
+react@^16.3.2:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 react@^16.4.1:
   version "16.4.1"

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Card, Image } from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react'
 
 class Team extends Component {
 
@@ -24,15 +24,25 @@ class Team extends Component {
   render() {
     return (
       <div>
-        <Card.Group centered>
+          <Grid stackable columns='equal'>
+          <Grid.Row>
+            <Grid.Column textAlign='center'>
+              <h3>This Is The Song Team</h3>
+            </Grid.Column>
+          </Grid.Row>
+          <div className="ui section divider"></div>
+          <Grid.Row>
           {this.state.team.map((member) => {
             return(
+              <Grid.Column textAlign='center'>
               <div key = {member.id}>
-                <Member member={member}/>
+              {member.name}
               </div>
+              </Grid.Column>
             )
           })}
-        </Card.Group>
+          </Grid.Row>
+          </Grid>
       </div>
 
     );
@@ -41,22 +51,3 @@ class Team extends Component {
 }
 
 export default Team
-
-
-class Member extends Component {
-
-  render(){
-    return (
-      <div className = "card">
-          <Card >
-      <Card.Content>
-        <Image size='medium' centered src={this.props.member.avatar} />
-        <Card.Header>{this.props.member.name}</Card.Header>
-        <Card.Meta>{this.props.member.location}</Card.Meta>
-        <Card.Description>{this.props.member.bio}</Card.Description>
-      </Card.Content>
-          </Card>
-      </div>
-    );
-  }
-}

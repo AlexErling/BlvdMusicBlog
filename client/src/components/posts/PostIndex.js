@@ -45,10 +45,10 @@ class PostIndex extends Component {
           endMessage={<div className="centered">No more results</div>}
           height={800}>
 
-          <div className = "heading centered">
-            <h1> Posts </h1>
+
+            <h3 className = "centered"> Posts </h3>
             <div className="ui section divider"></div>
-          </div>
+
 
           {this.state.posts.map((post) => {
             return(

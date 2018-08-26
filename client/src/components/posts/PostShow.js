@@ -5,6 +5,7 @@ import {Image} from 'semantic-ui-react';
 import {FacebookShareButton, TwitterShareButton} from 'react-share';
 import {Button, Icon, Grid} from "semantic-ui-react"
 import ReactHtmlParser from 'react-html-parser';
+import FacebookProvider, { Comments } from 'react-facebook';
 
 export default class PostShow extends Component {
 
@@ -23,7 +24,7 @@ export default class PostShow extends Component {
         console.log(response);
         this.setState({ post: response.data});
       })
-      .catch(error => console.log(error));
+      .catch(error => {window.location.href="/PageNotFound"});
   }
 
   render() {
@@ -87,6 +88,12 @@ class Post extends Component {
           <div className = "link centered">{ReactHtmlParser(this.props.post.link)}</div>
           <div className="ui section divider"></div>
         </div>
+        <div>
+
+          <FacebookProvider appId="259352021566127">
+          <Comments href={url}/>
+          </FacebookProvider>
+          </div>
       </div>
     );
   }

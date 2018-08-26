@@ -77,6 +77,7 @@
 .sticky {
     position: sticky;
     top: 0;
+    padding: 5px;
 }
 
 
@@ -85,6 +86,42 @@
   display: inline-block;
   vertical-align:top;
 }
+
+.twitter, .facebook, .instagram, .spotify, .soundcloud {
+  color: grey;
+}
+
+.twitter:hover, .facebook:hover, .instagram:hover, .spotify:hover, .soundcloud:hover {
+    transform: scale(1.1);
+    transition: transform .2s;
+
+
+}
+
+.twitter:hover {
+  color: #1DA1F2;
+
+}
+
+.facebook:hover {
+  color: #3B5998;
+
+}
+
+
+.instagram:hover {
+  color: #e4405f;
+}
+
+.spotify:hover {
+  color: #1db954;
+}
+
+.soundcloud:hover {
+  color: #ff8800;
+}
+
+
 
 .small {
   margin: 0px;

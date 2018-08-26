@@ -16,18 +16,21 @@ import {Grid, Divider} from 'semantic-ui-react'
 
 const Routes = () => (
   <Router>
-    <div className="App Site container">
+    <div>
       <div className="Site-content">
 
-
-          <NavBar />
-
-
-
-        <div className="main">
         <Grid padded columns={2}>
+        <Grid.Row>
+        <Grid.Column mobile={16} tablet={16} computer={12}>
+          <NavBar />
+          </Grid.Column>
+          </Grid.Row>
 
-        <Grid.Column mobile={16} tablet={16} computer={13}>
+
+
+
+          <Grid.Row>
+        <Grid.Column mobile={16} tablet={16} computer={12}>
          <Switch>
             <Route path="/about" exact strict component={About} />
             <Route path="/contact" exact strict component={Contact} />
@@ -43,11 +46,12 @@ const Routes = () => (
           </Switch>
           </Grid.Column>
 
-          <Grid.Column width={3} only='computer'>
+          <Grid.Column width={4} only='computer'>
           <SideBar className = "sidenav" />
           </Grid.Column>
+          </Grid.Row>
             </Grid>
-        </div>
+
 
 
 
