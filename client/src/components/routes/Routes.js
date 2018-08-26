@@ -10,16 +10,24 @@ import Tags from "../posts/Tags"
 import PageNotFound from "../pages/PageNotFound"
 import NavBar from '..//navigation/NavBar'
 import Footer from '..//navigation/Footer'
+import SideBar from '..//navigation/SideBar'
 import Search from '..//search/Search'
+import {Grid, Divider} from 'semantic-ui-react'
 
 const Routes = () => (
   <Router>
     <div className="App Site container">
       <div className="Site-content">
-        <div className="App-header">
+
+
           <NavBar />
-        </div>
+
+
+
         <div className="main">
+        <Grid padded columns={2}>
+
+        <Grid.Column mobile={16} tablet={16} computer={13}>
          <Switch>
             <Route path="/about" exact strict component={About} />
             <Route path="/contact" exact strict component={Contact} />
@@ -28,12 +36,21 @@ const Routes = () => (
             <Route path="/" exact render={() => (<Redirect to="/posts"/>)} />
             <Route path="/pagenotfound" exact strict component={PageNotFound} />
             <Route path="/songsubmission" exact strict component={SongSubmission} />
-            <Route path={"/post/:postId"} exact strict component={PostShow} />
+            <Route path={"/post/:slug"} exact strict component={PostShow} />
             <Route path={"/tag/:tag"}  exact strict component={Tags} />
             <Route path={"/search/:query"}  exact strict component={Search} />
             <Redirect to="/pagenotfound" />
           </Switch>
+          </Grid.Column>
+
+          <Grid.Column width={3} only='computer'>
+          <SideBar className = "sidenav" />
+          </Grid.Column>
+            </Grid>
         </div>
+
+
+
     </div>
     <Footer />
     </div>

@@ -74,6 +74,12 @@
 }
 
 
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+
 .title {
   margin: 10px;
   display: inline-block;

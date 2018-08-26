@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'slug_controller/show'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

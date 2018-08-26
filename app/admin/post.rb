@@ -1,6 +1,16 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body, :user_id, :post_type, :link, :song_title, :tag_list, :image
+  permit_params :title, :body, :user_id, :post_type, :link, :song_title, :tag_list, :image, :slug, :url_slug
   scope_to :current_user, unless: proc {current_user.admin?}
+
+  controller do
+    def find_resource
+      begin
+      scoped_collection.where(slug: params[:id]).first!
+      rescue ActiveRecord::RecordNotFound
+      scoped_collection.find(params[:id])
+      end
+    end
+  end
 
   form do |f|
     f.object.user = current_user
@@ -10,9 +20,10 @@ ActiveAdmin.register Post do
       end
       f.input :post_type
       f.input :title
-      f.input :song_title
+      f.input :song_title, label: "Song/Event Title"
       f.input :body, as: :quill_editor
       f.input :link
+      f.input :url_slug, label: "Slug (URL PATH)", hint: "Will be converted to friendly URL Slug"
       f.input :tag_list, label: "Tags (separated by commas)"
       f.input :image, hint: f.post.image? ? image_tag(f.post.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
@@ -39,6 +50,7 @@ ActiveAdmin.register Post do
       row :song_title
       row :body
       row :link
+      row :slug, label: "URL Link"
       list_row :tag_list
       image_row :image, style: :thumb
 

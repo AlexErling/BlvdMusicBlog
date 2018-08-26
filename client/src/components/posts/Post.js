@@ -19,7 +19,8 @@ class Post extends Component {
   this.setState({
     show: !this.state.show
   });
-}
+  }
+
 
   render() {
     var dateOptions = {year: 'numeric', month: 'long', day: 'numeric'}
@@ -32,7 +33,7 @@ class Post extends Component {
   return (
     <div>
       <div className = "title">
-        <h3> <Link to={'/post/'+this.props.post.id }>{this.props.post.title}</Link>  </h3>
+        <h3> <Link to={'/post/'+ (this.props.post.slug) }>{this.props.post.title}</Link>  </h3>
         <small className ="small" >{this.props.post.post_type}  | Posted by {this.props.post.user.name} | {date} | Tags: {tagList} </small>
       </div>
       <ToggleDisplay show={this.state.show}>

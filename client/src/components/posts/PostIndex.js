@@ -42,10 +42,14 @@ class PostIndex extends Component {
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
           loader={<Loader active={this.state.hasMore} inline="centered">Loading</Loader>}
-          endMessage={<div className="centered">No more results</div>} >
+          endMessage={<div className="centered">No more results</div>}
+          height={800}>
+
           <div className = "heading centered">
             <h1> Posts </h1>
+            <div className="ui section divider"></div>
           </div>
+
           {this.state.posts.map((post) => {
             return(
               <Post key = {post.id} post={post}/>

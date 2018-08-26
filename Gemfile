@@ -35,6 +35,8 @@ gem "aws-sdk-s3"
 #searching
 gem 'pg_search'
 
+#slugs
+gem 'friendly_id', '~> 5.2.0'
 
 #paginationbund
 gem 'api-pagination'
