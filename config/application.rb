@@ -26,7 +26,7 @@ module Thisisthesong
     config.assets.precompile += ['active_admin.js', 'active_admin.css']
 
     config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOWALL'
+    'X-Frame-Options' => 'ALLOWALL'
     }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
