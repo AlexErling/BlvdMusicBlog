@@ -6,6 +6,7 @@ class SideBar extends Component {
   render(){
     return (
       <div className = "float sticky">
+      <h3 className="centered" >Check us out on Twitter!</h3>
       <Timeline
         dataSource={{
           sourceType: 'profile',

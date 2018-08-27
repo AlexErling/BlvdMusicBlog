@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import {Icon, Grid} from 'semantic-ui-react';
-import Instafeed from 'react-instafeed';
+import {Icon, Grid, Card} from 'semantic-ui-react';
+import InstagramFeed from '../socialMedia/InstagramFeed.js'
 
 export default class About extends Component {
 
 
   render() {
-    const instafeedTarget = 'instafeed';
+
     return(
   <div>
-      <Grid  textAlign='center' padded>
+      <Grid  textAlign='center'>
       <Grid.Row>
       <h3> About us </h3>
       </Grid.Row>
@@ -39,33 +39,27 @@ export default class About extends Component {
     <div className="ui section divider"></div>
 
     <Grid.Row>
-    <h3> Follow us on Social Media:</h3>
+    <h3> Social Media:</h3>
     </Grid.Row>
 
     <Grid.Row>
-    <Icon circular className = "faebook" size='large' name = "facebook"/>
-    <Icon circular className = "twitter" size='large' name = "twitter"/>
-    <Icon circular className = "soundcloud" size='large' name = "soundcloud"/>
-    <Icon circular className = "spotify" size='large' name = "spotify"/>
-    <Icon circular className = "instagram" size='large' name = "instagram"/>
+
+    <a href="https://twitter.com/_ThisIsTheSong_" target="_blank" rel="noopener noreferrer"><Icon circular className = "twitter" size='large' name = "twitter"/></a>
+    <a href="https://soundcloud.com/thisisthesongblog"><Icon circular className = "soundcloud" size='large' name = "soundcloud"/></a>
+    <a href="https://open.spotify.com/user/g0sjkx99hjo0afhpe0969lgjv?si=0aHabul3SoCzypBeqzXIKA"><Icon circular className = "spotify" size='large' name = "spotify"/></a>
+    <a href="https://www.instagram.com/thisisthe_song/"><Icon circular className = "instagram" size='large' name = "instagram"/></a>
       </Grid.Row>
+
+      <div className="ui section divider"></div>
+
+
+      <Grid.Row>
+      <h3> Add us on Instagram! </h3>
+      </Grid.Row>
+      <Grid.Row>
+      <InstagramFeed/>
+    </Grid.Row>
     </Grid>
-
-    <div id={instafeedTarget}>
-  <Instafeed
-    limit='5'
-    ref='instafeed'
-    resolution='standard_resolution'
-    sortBy='most-recent'
-    target={instafeedTarget}
-    template=''
-    userId='8492775955'
-    clientId='d5fd3eabb0c740c483c6e00d744536cd'
-    accessToken='accessTokenInstagramApiString'
-  />
-</div>
-
-
   </div>
 )}
 };

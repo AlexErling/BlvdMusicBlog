@@ -47,16 +47,22 @@ const Routes = () => (
           </Grid.Column>
 
           <Grid.Column width={4} only='computer'>
+
           <SideBar className = "sidenav" />
           </Grid.Column>
           </Grid.Row>
+          <Grid.Row>
+          <Grid.Column mobile={16} tablet={16} computer={12}>
+              <Footer />
+              </Grid.Column>
+              </Grid.Row>
             </Grid>
 
 
 
 
     </div>
-    <Footer />
+
     </div>
   </Router>
 

@@ -47,7 +47,6 @@ ActiveAdmin.register Post do
       row :user
       row :post_type
       row :title
-      row :post_name
       row :body
       row :link
       row :slug, label: "URL Link"

@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation, :name, :admin, :avatar, :bio, :location
-  scope_to :current_user, unless: proc {current_user.admin?}
+  scope_to :current_user
   actions :all, :except => [:destroy, :new]
 
 

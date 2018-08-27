@@ -12,7 +12,7 @@ const SongSubmission = () => (
 
 
           <h5>
-            Send an email to: thisisthesong_submission@gmail.com and if we like what we see we will post it on the blog!
+            Send an email to: thisisthesong_submission@gmail.com and if we like what we hear we will post it on the blog!
             </h5>
 
       </div>

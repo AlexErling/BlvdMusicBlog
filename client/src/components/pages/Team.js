@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Grid, Image } from 'semantic-ui-react'
 
+
 class Team extends Component {
 
   constructor(props) {
