@@ -101,6 +101,9 @@ Rails.application.configure do
   config.serve_static_files = true
 
 
-  
+  config.action_mailer.default_url_options = { :host => 'www.thisisthesong.com' }
+
+
+
 
 end
