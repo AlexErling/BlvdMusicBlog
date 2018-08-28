@@ -9,8 +9,12 @@
   	max-width: 80%;
     min-width: 80%;
     margin: auto;
-
 }
+
+.ui.secondary.menu .active.item {
+  background: none !important;
+}
+
 .Site-content {
     flex: 1 0 auto;
     padding: var( — space) var( — space) 0;
