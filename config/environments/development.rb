@@ -62,7 +62,7 @@ Rails.application.configure do
   :password             => Rails.application.secrets.google_password,
   :authentication       => :plain,
   :enable_starttls_auto => true
-  # :enable_starttls_auto => true # I don't have this, but it should work anyway
-}
+
+  }
 
 end
