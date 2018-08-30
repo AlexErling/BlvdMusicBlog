@@ -1,6 +1,6 @@
 class PostsController < ApiController
   before_action :set_post, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search, :user_search]
 
   def index
     if params[:tag]

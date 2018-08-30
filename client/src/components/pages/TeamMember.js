@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Image, Grid} from 'semantic-ui-react';
+import Post from '../posts/Post.js';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {Loader} from 'semantic-ui-react';
-import Post from '../posts/Post.js';
 
 
-export default class TeamMember extends Component {
+
+class TeamMember extends Component {
 
   constructor(props) {
     super(props)
@@ -19,6 +20,7 @@ export default class TeamMember extends Component {
   }
 
   componentDidMount() {
+
     const { match: { params } } = this.props;
     axios
       .get(`/api/users/${params.slug}`)
@@ -28,7 +30,7 @@ export default class TeamMember extends Component {
       })
       .catch(error => console.log(error));
 
-      this.fetchMoreData();
+    this.fetchMoreData();
   }
 
 
@@ -43,6 +45,7 @@ export default class TeamMember extends Component {
           return
         }
         this.setState({posts: this.state.posts.concat(response.data), pageIndex: 1 + this.state.pageIndex });
+        console.log(response)
       })
       .catch(error => console.log(error));
     }, 500);
@@ -51,7 +54,6 @@ export default class TeamMember extends Component {
 
     render() {
       const member = this.state.member
-      console.log(this.state.member)
        return(
       <div>
 
@@ -80,8 +82,6 @@ export default class TeamMember extends Component {
 
       <div className="ui section divider"></div>
       <h4 className = "centered"> Checkout posts by {member.name} </h4>
-
-
         <InfiniteScroll
           dataLength = {this.state.posts.length}
           next={this.fetchMoreData}
@@ -90,27 +90,15 @@ export default class TeamMember extends Component {
           endMessage={<div className="centered">No more results</div>}
           height={600}>
 
-
-
-
-
-
-          {this.state.posts && this.state.posts.map((post) => {
+          {this.state.posts.map((post) => {
             return(
               <Post key = {post.id} post={post}/>
             )
           })}
         </InfiniteScroll>
-
-
-
-
         </div>
-
-
-
     );
-    }
-
-
+  }
 }
+
+export default TeamMember

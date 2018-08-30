@@ -29,6 +29,7 @@ class PostIndex extends Component {
           return
         }
         this.setState({posts: this.state.posts.concat(response.data), pageIndex: 1 + this.state.pageIndex });
+        console.log(response)
       })
       .catch(error => console.log(error));
     }, 500);
@@ -44,12 +45,8 @@ class PostIndex extends Component {
           loader={<Loader active={this.state.hasMore} inline="centered">Loading</Loader>}
           endMessage={<div className="centered">No more results</div>}
           height={800}>
-
-
             <h3 className = "centered"> Posts </h3>
             <div className="ui section divider"></div>
-
-
           {this.state.posts.map((post) => {
             return(
               <Post key = {post.id} post={post}/>

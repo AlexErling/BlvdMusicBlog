@@ -17,7 +17,6 @@ class NavBar extends Component {
 
   render() {
     const { activeItem } = this.state
-    console.log(this.props.to)
     return (
 <div>
     <div className = "centered nav">
