@@ -28,7 +28,6 @@ export default class TeamMember extends Component {
       })
       .catch(error => console.log(error));
 
-
       this.fetchMoreData();
   }
 
@@ -96,7 +95,7 @@ export default class TeamMember extends Component {
 
 
 
-          {this.state.posts.map((post) => {
+          {this.state.posts && this.state.posts.map((post) => {
             return(
               <Post key = {post.id} post={post}/>
             )

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Form, Message} from 'semantic-ui-react'
+import {Form} from 'semantic-ui-react'
 
 export default class About extends Component {
 

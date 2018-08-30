@@ -35,8 +35,8 @@ class Team extends Component {
           <Grid.Row>
           {this.state.team.map((member) => {
             return(
-              <Grid.Column textAlign='center'>
-              <div key = {member.id}>
+              <Grid.Column key={member.id} textAlign='center'>
+              <div>
                 <Link to={'/team/'+ member.slug }>{member.name}</Link>
               </div>
               </Grid.Column>
