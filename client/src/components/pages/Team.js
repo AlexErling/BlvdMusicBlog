@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Grid, Image } from 'semantic-ui-react'
-
+import { Grid} from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 class Team extends Component {
 
@@ -37,7 +37,7 @@ class Team extends Component {
             return(
               <Grid.Column textAlign='center'>
               <div key = {member.id}>
-              {member.name}
+                <Link to={'/team/'+ member.slug }>{member.name}</Link>
               </div>
               </Grid.Column>
             )

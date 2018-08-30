@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   scope '/api' do
     resources :posts
     get '/search', to: 'posts#search'
-    resources :users, only: [:index]
+    get '/user_posts', to: 'posts#user_search'
+    resources :users, only: [:index, :show]
     get 'tags/:tag', to: 'posts#index', as: "tag"
+    resources :contact, only: [:create]
   end
 
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do

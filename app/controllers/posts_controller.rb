@@ -16,7 +16,6 @@ class PostsController < ApiController
     @post
     authorize @post
     render :json => @post
-
   end
 
   def create
@@ -40,6 +39,11 @@ class PostsController < ApiController
   def search
     @post = Post.quick_search(params[:query])
     paginate json: @post
+  end
+
+  def user_search
+    @post = Post.user_search(params[:user])
+    paginate json: @post.order('created_at DESC')
   end
 
   private

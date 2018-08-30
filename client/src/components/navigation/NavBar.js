@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Menu,  Icon, Grid} from 'semantic-ui-react'
+import {Menu} from 'semantic-ui-react'
 import { NavLink, Link } from 'react-router-dom'
 import SearchBar from '../search/SearchBar'
 

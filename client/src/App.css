@@ -15,6 +15,11 @@
   background: none !important;
 }
 
+.memberimage {
+  height: 500px;
+  width: auto;
+}
+
 .Site-content {
     flex: 1 0 auto;
     padding: var( — space) var( — space) 0;

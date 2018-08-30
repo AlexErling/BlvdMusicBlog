@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Grid, Image } from 'semantic-ui-react'
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -24,24 +23,14 @@ export default class InstagramFeed extends Component {
   }
 
   render() {
-    var settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1
-};
-    console.log(this.state.instagram.data)
+
     const instadata = this.state.instagram.data
-    const images = []
-    {instadata && instadata.map((post) => {images.push(post.images.thumbnail.url)})}
-    console.log(images)
 
     return (
       <Carousel className = "insta" autoPlay infiniteLoop interval={10000} transitionTime={2000} stopOnHover>
   {instadata && instadata.map((post, index) => {
     return(
-      <div key={index}><img src={post.images.standard_resolution.url}/><a href={post.link} target="_blank" rel="noopener noreferrer"><p className="legend">{post.caption.text}</p></a></div>
+      <div key={index}><img src={post.images.standard_resolution.url} alt={post.caption.text}/><a href={post.link} target="_blank" rel="noopener noreferrer"><p className="legend">{post.caption.text}</p></a></div>
     )
   })}
   </Carousel>

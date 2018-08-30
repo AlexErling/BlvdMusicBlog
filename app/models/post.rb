@@ -23,4 +23,8 @@ class Post < ApplicationRecord
                   against: [:title, :post_name],
                   associated_against: { tags: [:name], user: [:name]},
                   using: {tsearch: {:prefix => true}}
+
+  pg_search_scope :user_search,
+                  associated_against: {user: [:slug]},
+                  using: {tsearch: {:prefix => true}}
 end

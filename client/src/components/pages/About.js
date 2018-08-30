@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Icon, Grid, Card} from 'semantic-ui-react';
+import {Icon, Grid} from 'semantic-ui-react';
 import InstagramFeed from '../socialMedia/InstagramFeed.js'
 
 export default class About extends Component {

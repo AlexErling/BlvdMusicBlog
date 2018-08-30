@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import About from "../pages/About"
 import Contact from "../pages/Contact"
 import Team from "../pages/Team"
+import TeamMember from "../pages/TeamMember"
 import SongSubmission from "../pages/SongSubmission"
 import PostIndex from "../posts/PostIndex"
 import PostShow from "../posts/PostShow"
@@ -12,7 +13,7 @@ import NavBar from '..//navigation/NavBar'
 import Footer from '..//navigation/Footer'
 import SideBar from '..//navigation/SideBar'
 import Search from '..//search/Search'
-import {Grid, Divider} from 'semantic-ui-react'
+import {Grid} from 'semantic-ui-react'
 
 const Routes = () => (
   <Router>
@@ -36,6 +37,7 @@ const Routes = () => (
             <Route path="/contact" exact strict component={Contact} />
             <Route path="/posts" exact strict component={PostIndex} />
             <Route path="/team" exact strict component={Team} />
+            <Route path={"/team/:slug"} exact strict component={TeamMember} />
             <Route path="/" exact render={() => (<Redirect to="/posts"/>)} />
             <Route path="/pagenotfound" exact strict component={PageNotFound} />
             <Route path="/songsubmission" exact strict component={SongSubmission} />

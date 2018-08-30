@@ -40,7 +40,7 @@ class SearchBar extends Component {
     setTimeout(() =>
       this.setState({
       isLoading: false,
-      }) , 300
+      }), 300
     )
   }
 
@@ -56,7 +56,7 @@ class SearchBar extends Component {
         onResultSelect={this.handleResultSelect}
         showNoResults={false}
         value={this.state.query}
-        results={this.state.results}
+        results={this.state.results.slice(0,5)}
         resultRenderer={resultRenderer}
         type={"submit"}
         { ...this.props}  />

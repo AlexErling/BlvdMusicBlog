@@ -3,18 +3,11 @@ import React from 'react';
 
 const SongSubmission = () => (
   <div>
+      <div className ="centered">
+      <h3 > Song Submission</h3>
 
-      <div>
-
-            <h3>
-            Are you interested in being on the blog?
-              </h3>
-
-
-          <h5>
-            Send an email to: thisisthesong_submission@gmail.com and if we like what we hear we will post it on the blog!
-            </h5>
-
+      <div className="ui section divider"></div>
+          <h5> We are currently working on our song submission form! If you are interested in being on the blog, just use the contact form and send us a link to you work. We will check it out and get back to you!</h5>
       </div>
 
   </div>

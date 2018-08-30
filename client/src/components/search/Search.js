@@ -5,8 +5,8 @@ class Search extends Component {
 
     render() {
       const results = this.props.location.state.results
-      const result = results.length == 1 ? "result" : "results"
-      const num_results = results.length == 0 ? "No" : results.length
+      const result = results.length === 1 ? "result" : "results"
+      const num_results = results.length === 0 ? "No" : results.length
       console.log(results)
       return(
 

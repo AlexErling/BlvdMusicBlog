@@ -25,7 +25,7 @@ gem 'coffee-rails'
 #jsonResponse
 gem 'active_model_serializers'
 
-
+#text-editor
 gem 'activeadmin_quill_editor'
 
 #images
@@ -34,6 +34,9 @@ gem "aws-sdk-s3"
 
 #searching
 gem 'pg_search'
+
+#mail form
+gem 'mail_form'
 
 #slugs
 gem 'friendly_id', '~> 5.2.0'
