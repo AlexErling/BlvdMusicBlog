@@ -27,9 +27,6 @@ const Routes = () => (
           </Grid.Column>
           </Grid.Row>
 
-
-
-
           <Grid.Row>
         <Grid.Column mobile={16} tablet={16} computer={12}>
          <Switch>

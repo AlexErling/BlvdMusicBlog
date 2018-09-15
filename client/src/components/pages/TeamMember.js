@@ -71,10 +71,10 @@ class TeamMember extends Component {
       </Grid.Column>
       <Grid.Column width={12}>
           <div>
-          Bio: {member.bio}
+          <b>Bio:</b> {member.bio}
           </div>
           <div>
-          Location: {member.location}
+          <b>Location:</b> {member.location}
           </div>
       </Grid.Column>
       </Grid.Row>

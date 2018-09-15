@@ -27,7 +27,7 @@ class Tags extends Component {
     return(
       <div>
         <div className = "heading centered">
-          <h1> Tag: {this.props.match.params.tag} </h1>
+          <h3> Tag: {this.props.match.params.tag} </h3>
         </div>
         {this.state.tags.map((tag) => {
           return(

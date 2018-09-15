@@ -34,7 +34,7 @@ class Post extends Component {
     <div>
       <div className = "title">
         <h3> <Link to={'/post/'+ (this.props.post.slug) }>{this.props.post.title}</Link>  </h3>
-        <small className ="small" >{this.props.post.post_type}  | Posted by {this.props.post.user.name} | {date} | Tags: {tagList} </small>
+        <small className ="small" > {date} | Tags: {tagList} </small>
       </div>
       <ToggleDisplay show={this.state.show}>
       <div className="ui section divider"></div>

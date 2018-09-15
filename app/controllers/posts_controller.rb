@@ -38,12 +38,12 @@ class PostsController < ApiController
 
   def search
     @post = Post.quick_search(params[:query])
-    paginate json: @post
+    paginate json: @post.order('created_at DESC')
   end
 
   def user_search
-    @post = Post.user_search(params[:user])
-    paginate json: @post.order('created_at DESC')
+    @posts = Post.user_search(params[:user])
+    paginate json: @posts.order('created_at DESC')
   end
 
   private

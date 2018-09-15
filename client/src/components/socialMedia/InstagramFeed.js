@@ -27,7 +27,7 @@ export default class InstagramFeed extends Component {
     const instadata = this.state.instagram.data
 
     return (
-      <Carousel className = "insta" autoPlay infiniteLoop interval={10000} transitionTime={2000} stopOnHover>
+      <Carousel className = "insta" autoPlay infiniteLoop interval={10000} transitionTime={1000} stopOnHover>
   {instadata && instadata.map((post, index) => {
     return(
       <div key={index}><img src={post.images.standard_resolution.url} alt={post.caption.text}/><a href={post.link} target="_blank" rel="noopener noreferrer"><p className="legend">{post.caption.text}</p></a></div>

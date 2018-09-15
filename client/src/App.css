@@ -53,23 +53,89 @@
 
 
 .image {
-  width: 70%;
+  width: 60%;
   height: auto;
-  margin: 10px;
+  margin: 5px
 }
 
-.thumb {
-  width: 100px;
-  height: auto;
-  vertical-align: middle;
+.thumbImage {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.0, 1.0);
+  transition: .5s ease;
 }
 
-.inline {
-  display: inline
+.imgContainer:hover .thumbImage {
+  opacity: 0.2;
+  transform: scale(1.05, 1.05);
+  transition: .5s ease;
 }
 
-.middle {
-  vertical-align: middle;
+.iframeContainer{
+  position: relative;
+  min-width: 210px;
+  display: block;
+
+
+}
+
+.imgContainer {
+
+  height: 95%;
+  width: 95%;
+  transform: scale(1.0, 1.0);
+  transition: .5s ease;
+}
+
+.imgContainer:hover .overlay {
+  opacity: .7;
+  transform: scale(1.05, 1.05);
+  transition: .5s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.text {
+  color: white;
+  font-size: 2vh;
+  line-height: 20px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+}
+
+
+@media only screen and (max-width: 992px) {
+  .text {
+    font-size: 2.5vh;
+    line-height: 25px;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .text {
+    font-size: 4vh;
+    line-height: 30px;
+  }
 }
 
 .float {
@@ -78,15 +144,17 @@
 
 .searchbar{
   margin-top: 25px;
-
   margin-right: 10px;
 }
 
 .insta {
-  width: 80%;
+  width: 65%;
   max-width: 640px;
 }
 
+.show {
+  clear: both;
+}
 
 .sticky {
     position: sticky;
@@ -94,11 +162,18 @@
     padding-top:0px;
 }
 
+.showMore {
+  margin-top: 10px;
+}
 
 .title {
-  margin: 10px;
+
   display: inline-block;
-  vertical-align:top;
+  vertical-align: middle;
+}
+
+.inline {
+  display: inline-block;
 }
 
 .twitter, .facebook, .instagram, .spotify, .soundcloud {

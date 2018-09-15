@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Post from './Post.js';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import {Loader} from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
+import {Loader, Grid, Button, Icon, Pagination} from 'semantic-ui-react';
+import ResizeImage from 'react-resize-image'
 
 class PostIndex extends Component {
 
@@ -10,10 +10,21 @@ class PostIndex extends Component {
     super(props)
     this.state = {
       posts: [],
-      pageIndex: 1,
-      hasMore: true
+      activePage: 1,
+      perPage: 12,
+      total_results: 0,
+      hasMore: true,
+
+      isLoading: false
     }
   }
+
+  handlePaginationChange = (e, { activePage }) => {
+    this.setState({ activePage })
+    this.fetchMoreData()
+     window.scrollTo(0, 0)
+  }
+
 
   componentDidMount() {
     this.fetchMoreData();
@@ -21,41 +32,79 @@ class PostIndex extends Component {
 
   fetchMoreData = () => {
     setTimeout(() => {
+
     axios
-      .get(`/api/posts/?per_page=5&page=${this.state.pageIndex}`)
+      .get(`/api/posts?per_page=${this.state.perPage}&page=${this.state.activePage}`)
       .then(response => {
         if (response.data.length===0){
           this.setState({hasMore: false})
           return
         }
-        this.setState({posts: this.state.posts.concat(response.data), pageIndex: 1 + this.state.pageIndex });
+        this.setState({posts: response.data, total_results: response.headers.total });
         console.log(response)
+
       })
       .catch(error => console.log(error));
     }, 500);
+
   }
 
   render() {
     return (
       <div>
-        <InfiniteScroll
-          dataLength = {this.state.posts.length}
-          next={this.fetchMoreData}
-          hasMore={this.state.hasMore}
-          loader={<Loader active={this.state.hasMore} inline="centered">Loading</Loader>}
-          endMessage={<div className="centered">No more results</div>}
-          height={800}>
-            <h3 className = "centered"> Posts </h3>
-            <div className="ui section divider"></div>
+      <h3 className = "centered">Posts</h3>
+      <div className="ui section divider"></div>
+
+
+      <Grid padded>
+      <Grid.Row>
           {this.state.posts.map((post) => {
             return(
-              <Post key = {post.id} post={post}/>
+              <Grid.Column key = {post.id} mobile={16} tablet={8} computer={4}>
+
+<Link to={'/post/'+ (post.slug) }>
+  <div className = "imgContainer centered">
+    <img className = "thumbImage" src = {post.thumb}/>
+    <div className = "overlay">
+      <h6 className ="text">{post.title}</h6>
+      </div>
+  </div>
+</Link>
+
+              </Grid.Column>
+
             )
           })}
-        </InfiniteScroll>
+          </Grid.Row>
+          <div className="ui section divider"></div>
+          <Grid.Row centered>
+
+          <Grid.Column width={16}>
+          <div className = "centered">
+            <Pagination pointing secondary
+            activePage={this.state.activePage}
+            boundaryRange={0}
+            onPageChange={this.handlePaginationChange}
+            siblingRange={4}
+            ellipsisItem={false}
+            totalPages={Math.ceil(this.state.total_results/this.state.perPage)} />
+            </div>
+          </Grid.Column>
+
+          </Grid.Row>
+          </Grid>
+
+
+
+
+
+
+
       </div>
     );
   }
 }
+
+
 
 export default PostIndex
