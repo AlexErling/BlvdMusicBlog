@@ -54,7 +54,7 @@ class Post extends Component {
       <div>
         <div className="centered">
           <h3>{this.props.post.title}</h3>
-          <small className ="small" >{this.props.post.post_type}  | Posted by {this.props.post.user.name} | {date} | Tags: {tagList} </small>
+          <small className ="small" >{this.props.post.post_type}  | Posted by: <Link to={'/team/' + this.props.post.user.slug}>  {this.props.post.user.name}</Link> | {date} | Tags: {tagList} </small>
         </div>
         <div className="ui section divider"></div>
         <div className="centered">
@@ -64,7 +64,7 @@ class Post extends Component {
         <div>
           <div className = "postBody"> {ReactHtmlParser(this.props.post.body)}</div>
           <div className="ui section divider"></div>
-          <div className = "link centered">{ReactHtmlParser(this.props.post.link)}</div>
+          <p className = "songTitle centered"> {this.props.post.post_name} </p>
           <div className="ui section divider"></div>
           <Grid>
             <Grid.Row columns={2} divided>
@@ -84,7 +84,9 @@ class Post extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-                    <div className="ui section divider"></div>
+          <div className="ui section divider"></div>
+          <div className = "link centered">{ReactHtmlParser(this.props.post.link)}</div>
+          <div className="ui section divider"></div>
         </div>
         <div>
 

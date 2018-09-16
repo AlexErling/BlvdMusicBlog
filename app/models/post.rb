@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_attached_file :image, styles: { thumb: "400x400#" }
+  has_attached_file :image, styles: { thumb: "400x400#" }, convert_options: {thumb: "-strip"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   enum post_type: [ :Song, :Playlist, :Video, :Event ]
   acts_as_taggable
@@ -26,5 +26,6 @@ class Post < ApplicationRecord
 
   pg_search_scope :user_search,
                   associated_against: {user: [:slug]},
-                  using: {tsearch: {:prefix => true}}
+                  using: {tsearch: {:prefix => true}},
+                  :order_within_rank => "posts.created_at DESC"
 end

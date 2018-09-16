@@ -49,6 +49,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 
 gem 'pundit'
 
+
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 3.1'

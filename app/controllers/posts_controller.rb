@@ -43,7 +43,7 @@ class PostsController < ApiController
 
   def user_search
     @posts = Post.user_search(params[:user])
-    paginate json: @posts.order('created_at DESC')
+    paginate json: @posts
   end
 
   private

@@ -85,7 +85,7 @@
 .imgContainer {
 
   height: 95%;
-  width: 95%;
+  width: auto;
   transform: scale(1.0, 1.0);
   transition: .5s ease;
 }

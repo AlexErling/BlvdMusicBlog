@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {Loader, Grid, Button, Icon, Pagination} from 'semantic-ui-react';
-import ResizeImage from 'react-resize-image'
+import InfiniteScroll from 'react-infinite-scroller';
+
 
 class PostIndex extends Component {
 
@@ -12,12 +13,16 @@ class PostIndex extends Component {
       posts: [],
       activePage: 1,
       perPage: 12,
-      total_results: 0,
+      totalResults: 0,
       hasMore: true,
-
-      isLoading: false
+      isLoading: false,
+      page: 1,
+      scrolling: false
     }
   }
+
+
+
 
   handlePaginationChange = (e, { activePage }) => {
     this.setState({ activePage })
@@ -27,76 +32,76 @@ class PostIndex extends Component {
 
 
   componentDidMount() {
-    this.fetchMoreData();
+    this.loadPosts();
+    this.scrollListener = window.addEventListener('scroll', (e) => {
+      this.handleScroll(e)
+    })
   }
 
-  fetchMoreData = () => {
-    setTimeout(() => {
+  handleScroll = (e) => {
+    const {scrolling, hasMore, page} = this.state
+    if (scrolling) return
+    if(!hasMore) return
+    var lastLi = document.querySelector('.post:last-child')
+    var lastLiOffset = lastLi.offsetTop + lastLi.clientHeight
+    var pageOffset = window.pageYOffset + window.innerHeight
+    var bottomOffset = 20
+    if (pageOffset > lastLiOffset - bottomOffset) {
+      this.loadMore()
+      console.log(true)
+    }
+  }
 
+  loadPosts = () => {
+    console.log(this.state.page)
+    const {perPage, page} = this.state
     axios
-      .get(`/api/posts?per_page=${this.state.perPage}&page=${this.state.activePage}`)
+      .get(`/api/posts?per_page=${perPage}&page=${page}`)
       .then(response => {
         if (response.data.length===0){
           this.setState({hasMore: false})
           return
         }
-        this.setState({posts: response.data, total_results: response.headers.total });
+        this.setState({posts: this.state.posts.concat(response.data), scrolling: false });
         console.log(response)
-
       })
       .catch(error => console.log(error));
-    }, 500);
-
   }
+
+  loadMore = () => {
+    this.setState(prevState => ({
+      page: prevState.page+1,
+      scrolling: true,
+    }), this.loadPosts)
+  }
+
+
+
 
   render() {
     return (
       <div>
-      <h3 className = "centered">Posts</h3>
+      <h3 className = "centered"> Posts </h3>
       <div className="ui section divider"></div>
 
 
-      <Grid padded>
-      <Grid.Row>
-          {this.state.posts.map((post) => {
-            return(
-              <Grid.Column key = {post.id} mobile={16} tablet={8} computer={4}>
-
-<Link to={'/post/'+ (post.slug) }>
-  <div className = "imgContainer centered">
-    <img className = "thumbImage" src = {post.thumb}/>
-    <div className = "overlay">
-      <h6 className ="text">{post.title}</h6>
-      </div>
-  </div>
-</Link>
-
+      <Grid  >
+      <Grid.Row id = "posts">
+          {this.state.posts.map(post =>
+              <Grid.Column className= "post" key = {post.id} mobile={16} tablet={8} computer={4}>
+              <Link to={'/post/'+ (post.slug) }>
+                <div className = "imgContainer centered">
+                  <img className = "thumbImage" src = {post.thumb}/>
+                  <div className = "overlay">
+                    <h6 className ="text">{post.title}</h6>
+                  </div>
+                </div>
+              </Link>
               </Grid.Column>
-
-            )
-          })}
-          </Grid.Row>
-          <div className="ui section divider"></div>
-          <Grid.Row centered>
-
-          <Grid.Column width={16}>
-          <div className = "centered">
-            <Pagination pointing secondary
-            activePage={this.state.activePage}
-            boundaryRange={0}
-            onPageChange={this.handlePaginationChange}
-            siblingRange={4}
-            ellipsisItem={false}
-            totalPages={Math.ceil(this.state.total_results/this.state.perPage)} />
-            </div>
-          </Grid.Column>
-
-          </Grid.Row>
+          )}
+      </Grid.Row>
+      <div className="ui section divider"></div>
           </Grid>
-
-
-
-
 
 
 
