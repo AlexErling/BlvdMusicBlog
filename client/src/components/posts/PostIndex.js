@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import {Loader, Grid, Button, Icon, Pagination} from 'semantic-ui-react';
+import {Dimmer, Loader, Grid, Button, Icon} from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroller';
 
 
@@ -11,9 +11,7 @@ class PostIndex extends Component {
     super(props)
     this.state = {
       posts: [],
-      activePage: 1,
       perPage: 12,
-      totalResults: 0,
       hasMore: true,
       isLoading: false,
       page: 1,
@@ -43,35 +41,39 @@ class PostIndex extends Component {
     if (scrolling) return
     if(!hasMore) return
     var lastLi = document.querySelector('.post:last-child')
+    if(!lastLi) return
     var lastLiOffset = lastLi.offsetTop + lastLi.clientHeight
     var pageOffset = window.pageYOffset + window.innerHeight
     var bottomOffset = 20
     if (pageOffset > lastLiOffset - bottomOffset) {
       this.loadMore()
-      console.log(true)
     }
   }
 
   loadPosts = () => {
-    console.log(this.state.page)
+    setTimeout(() => {
     const {perPage, page} = this.state
     axios
       .get(`/api/posts?per_page=${perPage}&page=${page}`)
       .then(response => {
         if (response.data.length===0){
-          this.setState({hasMore: false})
+          this.setState({hasMore: false, isLoading: false})
           return
         }
-        this.setState({posts: this.state.posts.concat(response.data), scrolling: false });
+        this.setState({posts: this.state.posts.concat(response.data), scrolling: false, isLoading: false });
         console.log(response)
+
       })
       .catch(error => console.log(error));
+      }, 500);
   }
 
   loadMore = () => {
+    console.log(this.state.hasMore)
     this.setState(prevState => ({
       page: prevState.page+1,
       scrolling: true,
+      isLoading: true,
     }), this.loadPosts)
   }
 
@@ -99,9 +101,14 @@ class PostIndex extends Component {
               </Link>
               </Grid.Column>
           )}
+
       </Grid.Row>
-      <div className="ui section divider"></div>
+      <Grid.Row centered>
+      <Loader active={this.state.isLoading}>Loading</Loader>
+      {!this.state.hasMore? (<p>No more results</p>) : ("")}
+      </Grid.Row>
           </Grid>
+
 
 
 

@@ -63,8 +63,9 @@ class Post extends Component {
         <div className="ui section divider"></div>
         <div>
           <div className = "postBody"> {ReactHtmlParser(this.props.post.body)}</div>
+  
           <div className="ui section divider"></div>
-          <p className = "songTitle centered"> {this.props.post.post_name} </p>
+          <div className = "link centered">{ReactHtmlParser(this.props.post.link)}</div>
           <div className="ui section divider"></div>
           <Grid>
             <Grid.Row columns={2} divided>
@@ -84,9 +85,7 @@ class Post extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <div className="ui section divider"></div>
-          <div className = "link centered">{ReactHtmlParser(this.props.post.link)}</div>
-          <div className="ui section divider"></div>
+            <div className="ui section divider"></div>
         </div>
         <div>
 
