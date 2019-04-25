@@ -1,4 +1,4 @@
-ThisIsTheSong is a music blog focusing on all sorts of electronic music. We love listening to music and finding the next great song/artist. We created ThisIsTheSong in order to share what we find with you. We hope you enjoy!
+BlvdMusicBlog is a music blog focusing on all sorts of electronic music. We love listening to music and finding the next great song/artist. We created ThisIsTheSong in order to share what we find with you. We hope you enjoy!
 
 DB: Postgres
 Backend: Ruby on Rails
@@ -14,7 +14,6 @@ Frontend: includes a full responsive searching system. Additionally, it includes
 
 Backend: Includes a tagging system, search capabilities with PG Search, image upload with Paperclip, JSON serialization with Active Modal Serializers
 
-Check out the progress here:
-https://hidden-citadel-10431.herokuapp.com/
+Check out the site here
+BlvdMusicBlog.com
 
-We are hoping to get ThisIsTheSong.com running very soon.
